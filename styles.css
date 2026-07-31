@@ -1,0 +1,315 @@
+/* Color Palette & Custom Variables */
+:root {
+    --navy: #0A192F;
+    --navy-light: #172A45;
+    --orange: #FF5500;
+    --orange-hover: #E04B00;
+    --graphite: #1F2421;
+    --white: #FFFFFF;
+    --gray-light: #F8F9FA;
+    --font-heading: 'Bebas Neue', sans-serif;
+    --font-body: 'Montserrat', sans-serif;
+}
+
+/* Reset & Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--navy);
+    color: var(--white);
+    font-family: var(--font-body);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.text-orange {
+    color: var(--orange);
+}
+
+/* Navigation Bar */
+.navbar {
+    background-color: rgba(10, 25, 47, 0.95);
+    border-bottom: 3px solid var(--orange);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(5px);
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 20px;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.nav-logo {
+    height: 50px;
+    width: auto;
+    object-fit: contain;
+}
+
+.brand-text {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    letter-spacing: 2px;
+}
+
+.btn-nav {
+    background: var(--orange);
+    color: var(--white);
+    text-decoration: none;
+    font-weight: 700;
+    padding: 8px 18px;
+    transform: skewX(-12deg);
+    display: inline-block;
+    transition: background 0.2s ease;
+    font-size: 0.9rem;
+}
+
+.btn-nav:hover {
+    background: var(--orange-hover);
+}
+
+/* Hero Section */
+.hero {
+    position: relative;
+    min-height: 85vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: url('assets/stadium-bg.png') no-repeat center center / cover;
+    padding: 60px 20px;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Dark gradient overlay over stadium photo for readibility */
+    background: linear-gradient(180deg, rgba(10,25,47,0.75) 0%, rgba(10,25,47,0.95) 100%);
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
+}
+
+.hero-logo {
+    width: clamp(350px, 50vw, 540px);
+    height: auto;
+    margin-bottom: 20px;
+    filter: drop-shadow(0 10px 1520px rgba(0,0,0,0.7));
+}
+
+.hero-title {
+    font-family: var(--font-heading);
+    font-size: clamp(3.5rem, 8vw, 6rem);
+    line-height: 0.95;
+    letter-spacing: 3px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.hero-subtitle {
+    font-weight: 700;
+    font-size: 1.1rem;
+    letter-spacing: 3px;
+    color: var(--gray-light);
+    margin-bottom: 15px;
+}
+
+.accent-wrapper {
+    margin: 15px 0 35px 0;
+}
+
+.hero-accent {
+    max-width: 200px;
+    height: auto;
+    opacity: 0.9;
+}
+
+/* Primary Button */
+.btn-primary {
+    background: var(--orange);
+    color: var(--white);
+    text-decoration: none;
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    letter-spacing: 2px;
+    padding: 15px 40px;
+    display: inline-block;
+    transform: skewX(-12deg);
+    box-shadow: 5px 5px 0px var(--graphite);
+    transition: all 0.2s ease;
+}
+
+.btn-primary:hover {
+    background: var(--orange-hover);
+    transform: skewX(-12deg) translate(-2px, -2px);
+    box-shadow: 7px 7px 0px var(--graphite);
+}
+
+.btn-primary .arrow {
+    display: inline-block;
+    margin-left: 10px;
+    transition: transform 0.2s ease;
+}
+
+.btn-primary:hover .arrow {
+    transform: translateX(5px);
+}
+
+/* Value Pillars Section */
+.pillars-section {
+    padding: 80px 0;
+    background-color: var(--navy-light);
+}
+
+.section-title {
+    font-family: var(--font-heading);
+    font-size: 3.5rem;
+    text-align: center;
+    letter-spacing: 2px;
+    margin-bottom: 50px;
+}
+
+.pillars-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.pillar-card {
+    background: var(--navy);
+    padding: 35px 25px;
+    border-left: 4px solid var(--graphite);
+    position: relative;
+    transition: border-color 0.3s ease;
+}
+
+.pillar-card.highlight,
+.pillar-card:hover {
+    border-left-color: var(--orange);
+}
+
+.pillar-number {
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    color: var(--orange);
+    line-height: 1;
+    margin-bottom: 10px;
+}
+
+.pillar-card h3 {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+}
+
+.pillar-card p {
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* Callout Section */
+.callout-section {
+    padding: 60px 0;
+}
+
+.callout-box {
+    background: linear-gradient(135deg, var(--graphite) 0%, var(--navy-light) 100%);
+    border: 2px solid var(--orange);
+    padding: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.callout-text h2 {
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    letter-spacing: 1px;
+}
+
+.callout-text p {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: var(--white);
+    border: 2px solid var(--white);
+    text-decoration: none;
+    font-family: var(--font-heading);
+    font-size: 1.4rem;
+    padding: 12px 30px;
+    transform: skewX(-12deg);
+    white-space: nowrap;
+    transition: all 0.2s ease;
+}
+
+.btn-secondary:hover {
+    background: var(--white);
+    color: var(--navy);
+}
+
+/* Footer */
+footer {
+    background-color: var(--navy);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 30px 0;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.footer-logo {
+    height: 35px;
+    opacity: 0.7;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .callout-box {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .btn-primary {
+        font-size: 1.4rem;
+        padding: 12px 25px;
+    }
+}
