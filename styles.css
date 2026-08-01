@@ -227,7 +227,8 @@ body {
 }
 
 .pillar-card.highlight,
-.pillar-card:hover {
+.pillar-card:hover,
+.pillar-card:active {
     border-left-color: var(--orange);
     transform: translateY(-6px); /* Lifts the card slightly up */
     box-shadow: 
