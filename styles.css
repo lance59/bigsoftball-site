@@ -188,8 +188,11 @@ body {
 
 /* Value Pillars Section */
 .pillars-section {
+    /* removed to try transparent background to keep immersion in the stadium lights 
     padding: 80px 0;
-    background-color: var(--navy-light);
+    background-color: var(--navy-light); */
+    background: transparent
+    padding: 80px 20px; 
 }
 
 .section-title {
@@ -207,16 +210,30 @@ body {
 }
 
 .pillar-card {
+    /* ORIGINAL blocked cards -- now trying semi transparent
     background: var(--navy);
     padding: 35px 25px;
     border-left: 4px solid var(--graphite);
     position: relative;
     transition: border-color 0.3s ease;
+    */
+    background: rgba(10, 25, 47, 0.45); /* Deep navy with 85% opacity */
+    backdrop-filter: blur(12px); /* Gives a cool frosted glass effect on supported browsers */
+    border: 1px solid rgba(255, 255, 255, 0.15); /* Subtle light border to define the card edge */
+    padding: 30px;
+    border-radius: 8px;
+    border-left-color: var(--orange);
+
 }
 
 .pillar-card.highlight,
 .pillar-card:hover {
     border-left-color: var(--orange);
+    transform: translateY(-6px); /* Lifts the card slightly up */
+    box-shadow: 
+        0 12px 24px rgba(0, 0, 0, 0.4),            /* Soft drop shadow for depth */
+        0 0 20px rgba(255, 107, 0, 0.35);         /* Subtle orange accent glow */
+    border-color: rgba(255, 107, 0, 0.6);         /* Optional: slightly brightens the glass border */
 }
 
 .pillar-number {
