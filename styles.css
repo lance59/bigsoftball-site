@@ -98,6 +98,7 @@ body {
     justify-content: center;
     text-align: center;
     background: url('assets/stadium-bg.png') no-repeat center center / cover;
+    background-attachment: fixed;
     padding: 60px 20px;
 }
 
