@@ -36,6 +36,26 @@ body {
     color: var(--orange);
 }
 
+/* top announcement bar */
+.top-announcement-bar {
+    background-color: rgba(0, 0, 0, 0.3); /* Slightly darker than your navy header */
+    text-align: center;
+    padding: 6px 12px;
+    font-size: 0.75rem; /* Super small text */
+    color: rgba(255, 255, 255, 0.6);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.top-announcement-bar a {
+    color: rgba(255, 255, 255, 0.85);
+    text-decoration: underline;
+    margin-left: 4px;
+}
+
+.top-announcement-bar a:hover {
+    color: var(--orange, #ff6b00);
+}
+
 /* Navigation Bar */
 .navbar {
     background-color: rgba(10, 25, 47, 0.95);
@@ -337,6 +357,21 @@ footer {
 .footer-logo {
     height: 35px;
     opacity: 0.7;
+}
+
+.disclaimer-text {
+    max-width: 700px;
+    line-height: 1.5;
+    text-align: center;
+}
+
+.footer-content a {
+    color: var(--orange, #ff6b00); 
+    text-decoration: underline;
+}
+
+.footer-content a:hover {
+    color: #ffffff;
 }
 
 /* Mobile Responsiveness */
