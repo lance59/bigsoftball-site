@@ -219,23 +219,40 @@ body {
     */
     background: rgba(10, 25, 47, 0.45); /* Deep navy with 85% opacity */
     backdrop-filter: blur(12px); /* Gives a cool frosted glass effect on supported browsers */
-    border: 1px solid rgba(255, 255, 255, 0.15); /* Subtle light border to define the card edge */
+    border: 1px solid rgba(255, 255, 255, 0.15); /* Subtle light border to define the edge */
     padding: 30px;
     border-radius: 8px;
-    border-left-color: var(--orange);
-
+    border-left: 1px solid var(--orange);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
-.pillar-card.highlight,
+/* DESKTOP ONLY: Add lift + glow on mouse hover */
+@media (hover: hover){
+    .pillar-card:hover {
+        border-left-color: var(--orange);
+        transform: translateY(-6px);
+        box-shadow: 
+            0 12px 24px rgba(0, 0, 0, 0.4),
+            0 0 20px rgba(255, 107, 0, 0.35);
+       /* border-color: rgba(255, 107, 0, 0.6); /*slightly brighten the glass box border */
+        border-color: var(--orange);
+    }
+}
+/* replaced by section above to limit to desktop browser
+previously this applied to hover and tried to get it working on mobile with active
+but the results weren't great */
+
+/* .pillar-card.highlight,
 .pillar-card:hover,
 .pillar-card:active {
     border-left-color: var(--orange);
-    transform: translateY(-6px); /* Lifts the card slightly up */
+    transform: translateY(-6px); /* Lifts the card slightly up 
     box-shadow: 
-        0 12px 24px rgba(0, 0, 0, 0.4),            /* Soft drop shadow for depth */
-        0 0 20px rgba(255, 107, 0, 0.35);         /* Subtle orange accent glow */
-    border-color: rgba(255, 107, 0, 0.6);         /* Optional: slightly brightens the glass border */
+        0 12px 24px rgba(0, 0, 0, 0.4),            /* Soft drop shadow for depth 
+        0 0 20px rgba(255, 107, 0, 0.35);         /* Subtle orange accent glow 
+    border-color: rgba(255, 107, 0, 0.6);         /* Optional: slightly brightens the glass border 
 }
+*/
 
 .pillar-number {
     font-family: var(--font-heading);
