@@ -157,7 +157,7 @@ body {
     flex-direction: column;
     align-items: center;
     /* Dynamically adjusts spacing between logo, title, text, and button based on vertical space */
-    gap: clamp(10px, 3vh, 24px);
+    gap: clamp(10px, 1.5vh, 24px);
     margin: auto 0;
 }
 
@@ -466,6 +466,8 @@ footer {
     .hero-logo {
         width: 62vw !important;               /* Scaled down slightly from 75vw for better proportions */
         max-width: 260px !important;
+        height: auto !important;
+        max-height: auto ~important;
         margin: 0 auto !important;
     }
 
