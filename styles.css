@@ -1,3 +1,4 @@
+/* * { outline: 1px solid red; } */
 /* Color Palette & Custom Variables */
 :root {
     --navy: #0A192F;
@@ -112,12 +113,13 @@ body {
 /* Hero Section */
 .hero {
     position: relative;
-    min-height: 85vh;
+    min-height: auto;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: 60px 20px;
+    padding: 30px 20px 20px 20px; 
 }
 
 /* Fixed background fix for iOS & Desktop */
@@ -153,7 +155,8 @@ body {
     font-size: clamp(3.5rem, 8vw, 6rem);
     line-height: 0.95;
     letter-spacing: 3px;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
+    margin-top: 10px; /* CHANGED HERE*/
     text-transform: uppercase;
 }
 
@@ -163,10 +166,11 @@ body {
     letter-spacing: 3px;
     color: var(--gray-light);
     margin-bottom: 15px;
+    margin-top: 10px; /* CHANGED HERE */
 }
 
 .accent-wrapper {
-    margin: 15px 0 35px 0;
+    margin: 20px 0 20px 0;
 }
 
 .hero-accent {
@@ -177,6 +181,8 @@ body {
 
 /* Primary Button */
 .btn-primary {
+    margin-top: 20px;
+    margin-bottom: 20px; 
     background: var(--orange);
     color: var(--white);
     text-decoration: none;
@@ -211,8 +217,9 @@ body {
     /* removed to try transparent background to keep immersion in the stadium lights 
     padding: 80px 0;
     background-color: var(--navy-light); */
-    background: transparent
-    padding: 80px 20px; 
+    background: transparent;
+    /* top right bottom left */
+    padding: 0 20px 80px 20px; /*changed top padding from 80 to 20*/
 }
 
 .section-title {
@@ -221,6 +228,7 @@ body {
     text-align: center;
     letter-spacing: 2px;
     margin-bottom: 50px;
+    margin-top: 0;
 }
 
 .pillars-grid {
