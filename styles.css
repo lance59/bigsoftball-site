@@ -1,5 +1,6 @@
-/* * { outline: 1px solid red; } */
-/* Color Palette & Custom Variables */
+/* ==========================================================================
+   Color Palette & Custom Variables
+   ========================================================================== */
 :root {
     --navy: #0A192F;
     --navy-light: #172A45;
@@ -12,7 +13,9 @@
     --font-body: 'Montserrat', sans-serif;
 }
 
-/* Reset & Base Styles */
+/* ==========================================================================
+   Reset & Base Styles
+   ========================================================================== */
 * {
     margin: 0;
     padding: 0;
@@ -37,12 +40,14 @@ body {
     color: var(--orange);
 }
 
-/* top announcement bar */
+/* ==========================================================================
+   Top Announcement Bar
+   ========================================================================== */
 .top-announcement-bar {
-    background-color: rgba(0, 0, 0, 0.3); /* Slightly darker than your navy header */
+    background-color: rgba(0, 0, 0, 0.3);
     text-align: center;
     padding: 6px 12px;
-    font-size: 0.75rem; /* Super small text */
+    font-size: 0.75rem;
     color: rgba(255, 255, 255, 0.6);
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
@@ -54,10 +59,12 @@ body {
 }
 
 .top-announcement-bar a:hover {
-    color: var(--orange, #ff6b00);
+    color: var(--orange);
 }
 
-/* Navigation Bar */
+/* ==========================================================================
+   Navigation Bar
+   ========================================================================== */
 .navbar {
     background-color: rgba(10, 25, 47, 0.95);
     border-bottom: 3px solid var(--orange);
@@ -110,19 +117,23 @@ body {
     background: var(--orange-hover);
 }
 
-/* Hero Section */
+/* ==========================================================================
+   Hero Section (V2 Above-the-Fold & Dynamic Spacing)
+   ========================================================================== */
 .hero {
     position: relative;
-    min-height: auto;
+    /* Consumes exact remaining viewport height minus top bar & navbar (~110px total) */
+    min-height: calc(100vh - 110px);
+    min-height: calc(100dvh - 110px); 
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     text-align: center;
-    padding: 30px 20px 20px 20px; 
+    padding: clamp(15px, 3vh, 30px) 20px clamp(30px, 7vh, 70px) 20px;
 }
 
-/* Fixed background fix for iOS & Desktop */
+/* Fixed Background attached to viewport */
 .hero::before {
     content: '';
     position: fixed;
@@ -141,55 +152,57 @@ body {
     position: relative;
     z-index: 2;
     max-width: 900px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Dynamically adjusts spacing between logo, title, text, and button based on vertical space */
+    gap: clamp(10px, 3vh, 24px);
+    margin: auto 0;
 }
 
 .hero-logo {
-    width: clamp(350px, 50vw, 540px);
-    height: auto;
-    margin-bottom: 20px;
+    /*width: clamp(100px, 40vw, 550px);*/
+    width: auto;
+    height: clamp(60px, 40vh, 550px);
+    max-width: 100%;
+    object-fit: contain;
+    margin: 0 auto; 
     filter: drop-shadow(0 10px 20px rgba(0,0,0,0.7));
 }
 
 .hero-title {
     font-family: var(--font-heading);
-    font-size: clamp(3.5rem, 8vw, 6rem);
+    font-size: clamp(3rem, 7vw, 5.5rem);
     line-height: 0.95;
     letter-spacing: 3px;
-    margin-bottom: 15px;
-    margin-top: 10px; /* CHANGED HERE*/
+    margin: 0;
     text-transform: uppercase;
 }
 
 .hero-subtitle {
     font-weight: 700;
-    font-size: 1.1rem;
-    letter-spacing: 3px;
+    font-size: clamp(0.85rem, 2vw, 1.1rem);
+    letter-spacing: 2px;
     color: var(--gray-light);
-    margin-bottom: 15px;
-    margin-top: 10px; /* CHANGED HERE */
+    margin: 0;
+    line-height: 1.0; /*was 1.3*/
 }
 
-.accent-wrapper {
-    margin: 20px 0 20px 0;
+.cta-group {
+    margin-top: clamp(8px, 1.5vh, 18px);
+    margin-bottom; 0;
 }
 
-.hero-accent {
-    max-width: 200px;
-    height: auto;
-    opacity: 0.9;
-}
-
-/* Primary Button */
 .btn-primary {
-    margin-top: 20px;
-    margin-bottom: 20px; 
+    margin: 0;
     background: var(--orange);
     color: var(--white);
     text-decoration: none;
     font-family: var(--font-heading);
-    font-size: 1.8rem;
+    font-size: clamp(1.4rem, 3vw, 1.8rem);
     letter-spacing: 2px;
-    padding: 15px 40px;
+    padding: 14px 36px;
     display: inline-block;
     transform: skewX(-12deg);
     box-shadow: 5px 5px 0px var(--graphite);
@@ -212,14 +225,39 @@ body {
     transform: translateX(5px);
 }
 
-/* Value Pillars Section */
+/* ==========================================================================
+   V2 Bridge / Accent Section
+   ========================================================================== */
+.accent-bridge-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: clamp(20px, 4vh, 40px) 20px;
+    position: relative;
+    z-index: 2;
+}
+
+.accent-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-accent {
+    max-width: clamp(150px, 22vw, 210px);
+    height: auto;
+    opacity: 0.9;
+    filter: drop-shadow(0 4px 12px rgba(0,0,0,0.5));
+}
+
+/* ==========================================================================
+   Value Pillars Section
+   ========================================================================== */
 .pillars-section {
-    /* removed to try transparent background to keep immersion in the stadium lights 
-    padding: 80px 0;
-    background-color: var(--navy-light); */
     background: transparent;
-    /* top right bottom left */
-    padding: 0 20px 80px 20px; /*changed top padding from 80 to 20*/
+    padding: 20px 20px 80px 20px;
+    position: relative;
+    z-index: 2;
 }
 
 .section-title {
@@ -227,7 +265,7 @@ body {
     font-size: 3.5rem;
     text-align: center;
     letter-spacing: 2px;
-    margin-bottom: 50px;
+    margin-bottom: 40px;
     margin-top: 0;
 }
 
@@ -238,23 +276,16 @@ body {
 }
 
 .pillar-card {
-    /* ORIGINAL blocked cards -- now trying semi transparent
-    background: var(--navy);
-    padding: 35px 25px;
-    border-left: 4px solid var(--graphite);
-    position: relative;
-    transition: border-color 0.3s ease;
-    */
-    background: rgba(10, 25, 47, 0.45); /* Deep navy with 85% opacity */
-    backdrop-filter: blur(12px); /* Gives a cool frosted glass effect on supported browsers */
-    border: 1px solid rgba(255, 255, 255, 0.15); /* Subtle light border to define the edge */
+    background: rgba(10, 25, 47, 0.45);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
     padding: 30px;
     border-radius: 8px;
     border-left: 1px solid var(--orange);
     transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
-/* DESKTOP ONLY: Add lift + glow on mouse hover */
+/* Desktop Hover Effects */
 @media (hover: hover){
     .pillar-card:hover {
         border-left-color: var(--orange);
@@ -262,25 +293,9 @@ body {
         box-shadow: 
             0 12px 24px rgba(0, 0, 0, 0.4),
             0 0 20px rgba(255, 107, 0, 0.35);
-       /* border-color: rgba(255, 107, 0, 0.6); /*slightly brighten the glass box border */
         border-color: var(--orange);
     }
 }
-/* replaced by section above to limit to desktop browser
-previously this applied to hover and tried to get it working on mobile with active
-but the results weren't great */
-
-/* .pillar-card.highlight,
-.pillar-card:hover,
-.pillar-card:active {
-    border-left-color: var(--orange);
-    transform: translateY(-6px); /* Lifts the card slightly up 
-    box-shadow: 
-        0 12px 24px rgba(0, 0, 0, 0.4),            /* Soft drop shadow for depth 
-        0 0 20px rgba(255, 107, 0, 0.35);         /* Subtle orange accent glow 
-    border-color: rgba(255, 107, 0, 0.6);         /* Optional: slightly brightens the glass border 
-}
-*/
 
 .pillar-number {
     font-family: var(--font-heading);
@@ -302,9 +317,13 @@ but the results weren't great */
     color: rgba(255, 255, 255, 0.8);
 }
 
-/* Callout Section */
+/* ==========================================================================
+   Callout Section
+   ========================================================================== */
 .callout-section {
-    padding: 60px 0;
+    padding: 40px 0;
+    position: relative;
+    z-index: 2;
 }
 
 .callout-box {
@@ -346,11 +365,15 @@ but the results weren't great */
     color: var(--navy);
 }
 
-/* Footer */
+/* ==========================================================================
+   Footer
+   ========================================================================== */
 footer {
     background-color: var(--navy);
     border-top: 1px solid rgba(255, 255, 255, 0.1);
     padding: 30px 0;
+    position: relative;
+    z-index: 2;
 }
 
 .footer-content {
@@ -374,15 +397,17 @@ footer {
 }
 
 .footer-content a {
-    color: var(--orange, #ff6b00); 
+    color: var(--orange); 
     text-decoration: underline;
 }
 
 .footer-content a:hover {
-    color: #ffffff;
+    color: var(--white);
 }
 
-/* Mobile Responsiveness */
+/* ==========================================================================
+   Mobile Responsiveness
+   ========================================================================== */
 @media (max-width: 768px) {
     .callout-box {
         flex-direction: column;
@@ -393,4 +418,70 @@ footer {
         font-size: 1.4rem;
         padding: 12px 25px;
     }
+}
+
+/* ==========================================================================
+   Mobile Responsive Fix (768px & below)
+   ========================================================================== */
+@media (max-width: 768px) {
+    /* 1. Vertically center the content to balance top/bottom space */
+    .hero {
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: center !important;   /* Centering eliminates the massive empty space at the bottom */
+        align-items: center !important;
+        padding-top: 2.5rem !important;      /* Creates a comfortable buffer below sticky header */
+        padding-bottom: 1.0rem !important;
+        height: auto !important;
+        min-height: calc(100svh - 110px) !important; /* Locks height to 'svh' to prevent scroll-stretch jumps */
+    }
+
+    /* 2. Expand vertical gap and fix text line heights */
+    .hero-content {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 1.25rem !important;              /* Increased from 12px to give text and CTA room to breathe */
+        margin-top: 0 !important;
+        padding-top: 0 !important;
+        text-align: center !important;
+    }
+
+    /* Ensure text lines don't collide */
+    .hero-content h1, 
+    .hero-content h2,
+    .hero-title {
+        line-height: 1.15 !important;
+        margin: 0 !important;
+    }
+
+    .hero-content p, 
+    .hero-subtitle {
+        line-height: 1.35 !important;         /* Gives multi-line body/subtitles breathing room */
+        margin: 0 !important;
+        padding: 0 0.5rem !important;
+    }
+
+    /* 3. Right-size the logo so it doesn't dominate vertical space */
+    .hero-logo {
+        width: 62vw !important;               /* Scaled down slightly from 75vw for better proportions */
+        max-width: 260px !important;
+        margin: 0 auto !important;
+    }
+
+    .hero-logo img {
+        width: 100% !important;
+        height: auto !important;
+        max-height: none !important;
+        object-fit: contain !important;
+    }
+
+    /* 4. Lock the accent/bridge section spacing */
+    .accent-bridge {
+        padding-top: 2rem !important;
+        padding-bottom: 2rem !important;
+        margin-top: 0 !important;
+        margin-bottom: 0 !important;
+    }
+
 }
