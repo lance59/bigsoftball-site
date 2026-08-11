@@ -28,6 +28,38 @@
     <meta name="twitter:title" content="13U Tigers Select Softball | September Tryouts" />
     <meta name="twitter:description" content="Development, Competition, Culture. Register today for our upcoming September tryouts." />
     <meta name="twitter:image" content="https://bwgsoftball.ca/assets/tiger-logo-preview.jpg" />
+   
+    <!-- Tally.so popup during carrot fest -->
+    <script>
+    // TOGGLE SWITCH: Set to true to go live, false to turn off
+    const ENABLE_TALLY = false;
+
+    // Auto-enables on localhost OR when adding "?test=1" to URL
+    const IS_TESTING = window.location.hostname === 'localhost' ||
+                       window.location.hostname === '127.0.0.1' ||
+                       window.location.search.includes('test=1');
+
+    if (ENABLE_TALLY || IS_TESTING) {
+      window.TallyConfig = {
+        "formId": "PdQ6N0",
+        "popup": {
+          "emoji": {
+            "text": "\uD83E\uDD4E",
+            "animation": "bounce"
+          },
+          "open": {
+            "trigger": "scroll"
+          }
+        }
+      };
+
+      const script = document.createElement('script');
+      script.src = "https://tally.so/widgets/embed.js";
+      script.async = true;
+      document.head.appendChild(script);
+    }
+    </script>
+</head>
 
 </head>
 <body>
