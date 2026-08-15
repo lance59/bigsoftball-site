@@ -32,7 +32,7 @@
     <!-- Tally.so popup during carrot fest -->
     <script>
     // TOGGLE SWITCH: Set to true to go live, false to turn off
-    const ENABLE_TALLY = false;
+    const ENABLE_TALLY = true;
 
     // Auto-enables on localhost OR when adding "?test=1" to URL
     const IS_TESTING = window.location.hostname === 'localhost' ||
@@ -44,7 +44,7 @@
         "formId": "PdQ6N0",
         "popup": {
           "emoji": {
-            "text": "\uD83E\uDD4E",
+            "text": "\uD83E\uDD55", //uDD55 is a carrot, uDD4E was a softball
             "animation": "bounce"
           },
           "open": {
@@ -61,13 +61,13 @@
     </script>
 </head>
 
-</head>
 <body>
 
     <!-- Announcement / Disclaimer Bar -->
+    <!-- TEMPORARILY HIDE DISCLAIMER BAR TO AVOID NAVIGATION CONFUSION DURING CARROT FEST
     <div class="top-announcement-bar">
         <span>Looking for the main association page or house league registration? <a href="https://bradfordtigers.ca" target="_blank" rel="noopener noreferrer">Visit BradfordTigers.ca &rarr;</a></span>
-    </div>
+    </div> -->
 
     <!-- Header / Navigation -->
     <header class="navbar">
@@ -76,7 +76,9 @@
                 <img src="assets/b2-logo.png" alt="Bradford Tigers B Logo" class="nav-logo">
                 <span class="brand-text">TIGERS</span>
             </div>
+            <!-- TEMPORARILY HIDE TOP INTEREST BUTTON TO AVOID CARROT FEST CONFUSION
             <a href="https://forms.gle/GKhw946RZWxFUqny7" target="_blank" class="btn-nav">EXPRESS INTEREST</a>
+            -->
         </div>
     </header>
 
