@@ -1,11 +1,11 @@
 /* ==========================================================================
-   Color Palette & Custom Variables (BMBA Matched)
+   Color Palette & Custom Variables
    ========================================================================== */
 :root {
     --navy: #0A192F;
     --navy-light: #172A45;
-    --orange: #CE5A20; /* BMBA Official Orange */
-    --orange-hover: #B44B18;
+    --orange: #FF5500;
+    --orange-hover: #E04B00;
     --graphite: #1F2421;
     --white: #FFFFFF;
     --gray-light: #F8F9FA;
@@ -41,99 +41,37 @@ body {
 }
 
 /* ==========================================================================
-   Co-Branded Top Announcement Bar (High Visibility)
+   Top Announcement Bar
    ========================================================================== */
 .top-announcement-bar {
-    background: #000000; /* Pure black background for high contrast */
-    padding: 10px 0; /* Slightly taller for better breathing room */
-    font-size: 0.85rem;
-    color: #FFFFFF;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.3);
+    text-align: center;
+    padding: 6px 12px;
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.6);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-.top-bar-content {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 16px;
+.top-announcement-bar a {
+    color: rgba(255, 255, 255, 0.85);
+    text-decoration: underline;
+    margin-left: 4px;
 }
 
-.top-bar-left {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    flex-wrap: wrap;
-}
-
-.bmba-badge {
-    background-color: var(--orange);
-    color: #FFFFFF;
-    font-family: var(--font-heading);
-    font-size: 0.85rem;
-    letter-spacing: 1.5px;
-    padding: 4px 10px;
-    border-radius: 3px;
-    text-transform: uppercase;
-    white-space: nowrap;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
-}
-
-.bar-text {
-    font-size: 0.85rem;
-    color: #FFFFFF;
-    font-weight: 600;
-}
-
-.top-bar-right {
-    white-space: nowrap;
-}
-
-.bmba-link {
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.25);
-    color: #FFFFFF;
-    text-decoration: none;
-    font-weight: 700;
-    font-size: 0.78rem;
-    padding: 5px 12px;
-    border-radius: 3px;
-    transition: all 0.2s ease;
-}
-
-.bmba-link:hover {
-    background: var(--orange);
-    border-color: var(--orange);
-    color: #FFFFFF;
-}
-
-@media (max-width: 768px) {
-    .top-bar-content {
-        flex-direction: column;
-        text-align: center;
-        justify-content: center;
-        gap: 8px;
-        padding: 8px 12px;
-    }
-    .top-bar-left {
-        justify-content: center;
-    }
-    .bar-text {
-        font-size: 0.78rem;
-    }
+.top-announcement-bar a:hover {
+    color: var(--orange);
 }
 
 /* ==========================================================================
-   Navigation Bar (Unified Black Header - Complete Fix)
+   Navigation Bar
    ========================================================================== */
 .navbar {
-    background-color: #000000;
+    background-color: rgba(10, 25, 47, 0.95);
     border-bottom: 3px solid var(--orange);
     position: sticky;
     top: 0;
     z-index: 100;
+    backdrop-filter: blur(5px);
 }
 
 .nav-container {
@@ -142,56 +80,32 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 20px;
+    padding: 12px 20px;
 }
 
 .brand {
     display: flex;
     align-items: center;
     gap: 12px;
-    text-decoration: none;
-    color: var(--white);
-    transition: opacity 0.2s ease;
 }
 
-.brand:hover {
-    opacity: 0.85;
-}
-
-/* Caps logo height to prevent giant blowout */
 .nav-logo {
-    height: 40px;
+    height: 35px;
     width: auto;
     object-fit: contain;
-}
-
-.brand-text-wrapper {
-    display: flex;
-    flex-direction: column;
-    line-height: 1;
+    padding: 2px 6px;
 }
 
 .brand-text {
     font-family: var(--font-heading);
     font-size: 1.8rem;
     letter-spacing: 2px;
+}
+
+.btn-nav {
+    background: var(--orange);
     color: var(--white);
-}
-
-.brand-subtext {
-    font-size: 0.55rem;
-    letter-spacing: 0.5px;
-    color: var(--orange);
-    font-weight: 700;
-    margin-top: 2px;
-}
-
-/* Restores orange slanted CTA button */
-.btn-nav,
-.btn-nav:visited {
-    background: var(--orange) !important;
-    color: var(--white) !important;
-    text-decoration: none !important;
+    text-decoration: none;
     font-weight: 700;
     padding: 8px 18px;
     transform: skewX(-12deg);
@@ -200,26 +114,27 @@ body {
     font-size: 0.9rem;
 }
 
-.btn-nav:hover,
-.btn-nav:active {
-    background: var(--orange-hover) !important;
-    color: var(--white) !important;
+.btn-nav:hover {
+    background: var(--orange-hover);
 }
+
 /* ==========================================================================
-   Hero Section
+   Hero Section (V2 Above-the-Fold & Dynamic Spacing)
    ========================================================================== */
 .hero {
     position: relative;
-    min-height: calc(100vh - 60px);
-    min-height: calc(100dvh - 60px);
+    /* Consumes exact remaining viewport height minus top bar & navbar (~110px total) */
+    min-height: calc(100vh - 110px);
+    min-height: calc(100dvh - 110px); 
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     text-align: center;
-    padding: 15px 20px 25px 20px;
+    padding: clamp(15px, 3vh, 30px) 20px clamp(30px, 7vh, 70px) 20px;
 }
 
+/* Fixed Background attached to viewport (note overlay was previously 70% to 95%*/
 .hero::before {
     content: '';
     position: fixed;
@@ -242,17 +157,19 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    /* Dynamically adjusts spacing between logo, title, text, and button based on vertical space */
     gap: clamp(10px, 1.5vh, 24px);
     margin: auto 0;
 }
 
 .hero-logo {
+    /*width: clamp(100px, 40vw, 550px);*/
     width: auto;
-    height: clamp(60px, 30vh, 550px);
+    height: clamp(60px, 40vh, 550px);
     max-width: 100%;
     object-fit: contain;
     margin: 1rem auto 1rem; 
-    filter: drop-shadow(0 4px 10px rgba(0,0,0,0.65));
+    filter: drop-shadow(0 4px 10px rgba(0,0,0,0.65)); /* was previously (0 10px 20px rgba(0,0,0,0.7) */
 }
 
 .hero-title {
@@ -270,24 +187,19 @@ body {
     letter-spacing: 2px;
     color: var(--gray-light);
     margin: 0;
-    line-height: 1.0;
+    line-height: 1.0; /*was 1.3*/
 }
 
 .hero-tagline {
-  display: block;
-  margin-top: 0.5rem;
-  font-size: 0.9em;
-  text-transform: none;
-  font-weight: 400;
-  opacity: 0.9;
+  display: block;          /* Forces it onto its own new line */
+  margin-top: 0.5rem;      /* Adds a tiny gap below the main sub-headline */
+  font-size: 0.9em;        /* Slightly smaller to create hierarchy */
+  text-transform: none;    /* Keeps it readable (Sentence Case) even if parent is uppercase */
+  font-weight: 400;        /* unbold text */
+  opacity: 0.9;            /* Softens the contrast slightly for better eye movement */
 }
 
-/* Converts CTA container to flexbox to cleanly push note away from button */
 .cta-group {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 16px; /* Forces exact 16px gap below slanted button */
     margin-top: clamp(8px, 2vh, 18px);
     margin-bottom: 0;
 }
@@ -318,41 +230,19 @@ body {
     margin-left: 10px;
     transition: transform 0.2s ease;
 }
-	
+
 .btn-primary:hover .arrow {
     transform: translateX(5px);
 }
 
-.hero-alt-note {
-    margin: 0 !important;
-    padding: 0 12px;
-    line-height: 1.4;
-    font-size: 0.85rem;
-    color: rgba(255, 255, 255, 0.85);
-    font-weight: 500;
-}
-
-/* Corrected syntax (removed space in var(--orange)) */
-.hero-alt-link {
-    color: var(--orange);
-    text-decoration: underline;
-    font-weight: 700;
-    transition: color 0.2s ease;
-}
-
-.hero-alt-link:hover,
-.hero-alt-link:active {
-    color: var(--white);
-}
-
 /* ==========================================================================
-   Accent & Pillars
+   V2 Bridge / Accent Section
    ========================================================================== */
 .accent-bridge-section {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 20px 20px;
+    padding: 20px 20px; /*was clamp(20px, 4vh, 40px) 20px; */
     position: relative;
     z-index: 2;
 }
@@ -370,10 +260,13 @@ body {
     filter: drop-shadow(0 4px 12px rgba(0,0,0,0.5));
 }
 
+/* ==========================================================================
+   Value Pillars Section
+   ========================================================================== */
 .program-glance,
 .pillars-section {
     background: transparent;
-    padding: 20px 0;
+    padding: 20px 0; /* was 20px 20px 80px 20px */
     position: relative;
     z-index: 2;
 }
@@ -409,6 +302,7 @@ body {
     gap: 1.5rem;
 }
 
+/* Desktop Hover Effects */
 @media (hover: hover){
     .pillar-card:hover {
         border-left-color: var(--orange);
@@ -441,7 +335,7 @@ body {
 }
 
 /* ==========================================================================
-   Callout & Footer
+   Callout Section
    ========================================================================== */
 .callout-section {
     padding: 40px 0;
@@ -488,6 +382,9 @@ body {
     color: var(--navy);
 }
 
+/* ==========================================================================
+   Footer
+   ========================================================================== */
 footer {
     background-color: var(--navy);
     border-top: 1px solid rgba(255, 255, 255, 0.1);
@@ -525,6 +422,9 @@ footer {
     color: var(--white);
 }
 
+/* ==========================================================================
+   Footer Social Links
+   ========================================================================== */
 .footer-social-section {
     display: flex;
     flex-direction: column;
@@ -558,7 +458,7 @@ footer {
     border-radius: 6px;
     color: var(--white);
     transition: all 0.25s ease;
-    text-decoration: none !important;
+    text-decoration: none !important; /* Overrides default link underline */
 }
 
 .social-btn svg {
@@ -572,7 +472,7 @@ footer {
     border-color: var(--orange);
     color: var(--white);
     transform: translateY(-3px);
-    box-shadow: 0 4px 15px rgba(206, 90, 32, 0.45);
+    box-shadow: 0 4px 15px rgba(255, 85, 0, 0.45);
 }
 
 /* ==========================================================================
@@ -588,33 +488,43 @@ footer {
         font-size: 1.4rem;
         padding: 12px 25px;
     }
+}
 
+/* ==========================================================================
+   Mobile Responsive Fix (768px & below)
+   ========================================================================== */
+@media (max-width: 768px) {
+
+    /* Fix heading titles on mobile */
     .section-title,
     .section-title .text-orange {
         line-height: 1.0;
     }
 
+    /* 1. Vertically center the content to balance top/bottom space */
     .hero {
         display: flex !important;
         flex-direction: column !important;
-        justify-content: center !important;
+        justify-content: center !important;   /* Centering eliminates the massive empty space at the bottom */
         align-items: center !important;
-        padding-top: 2.5rem !important;
+        padding-top: 2.5rem !important;      /* Creates a comfortable buffer below sticky header */
         padding-bottom: 1.0rem !important;
         height: auto !important;
-        min-height: calc(100svh - 110px) !important;
+        min-height: calc(100svh - 110px) !important; /* Locks height to 'svh' to prevent scroll-stretch jumps */
     }
 
+    /* 2. Expand vertical gap and fix text line heights */
     .hero-content {
         display: flex !important;
         flex-direction: column !important;
         align-items: center !important;
-        gap: 1.25rem !important;
+        gap: 1.25rem !important;              /* Increased from 12px to give text and CTA room to breathe */
         margin-top: 0 !important;
         padding-top: 0 !important;
         text-align: center !important;
     }
 
+    /* Ensure text lines don't collide */
     .hero-content h1, 
     .hero-content h2,
     .hero-title {
@@ -624,19 +534,29 @@ footer {
 
     .hero-content p, 
     .hero-subtitle {
-        line-height: 1.35 !important;
+        line-height: 1.35 !important;         /* Gives multi-line body/subtitles breathing room */
         margin: 0 !important;
         padding: 0 0.5rem !important;
     }
 
+    /* 3. Right-size the logo so it doesn't dominate vertical space */
     .hero-logo {
-        width: 62vw !important;
+        width: 62vw !important;               /* Scaled down slightly from 75vw for better proportions */
         max-width: 260px !important;
         height: auto !important;
         max-height: auto !important;
         margin: 0 auto !important;
     }
 
+    .hero-logo img {
+        width: 100% !important;
+        height: auto !important;
+        max-height: none !important;
+        margin-bottom: 0; /*keep mobile layout tight after adding space on desktop */
+        object-fit: contain !important;
+    }
+
+    /* 4. Lock the accent/bridge section spacing */
     .accent-bridge-section {
         padding-top: 2rem !important;
         padding-bottom: 2rem !important;
@@ -644,10 +564,11 @@ footer {
         margin-bottom: 0 !important;
     }
 
-    .grid-2x2 {
+   .grid-2x2 {
         grid-template-columns: 1fr;
     }
 
+    /*spacing cleanup*/
     section,
     .program-at-a-glance,
     .pillars-section,
@@ -655,84 +576,6 @@ footer {
         padding-top: 2rem !important;
         padding-bottom: 2rem !important;
     }
-}
-
-/* ==========================================================================
-   Hero Alternate Link (Override Browser Defaults)
-   ========================================================================== */
-.hero-alt-note a,
-.hero-alt-note a:link,
-.hero-alt-note a:visited,
-.hero-alt-link,
-.hero-alt-link:link,
-.hero-alt-link:visited {
-    color: var(--orange) !important;
-    text-decoration: underline !important;
-    font-weight: 700 !important;
-    transition: color 0.2s ease !important;
-}
-
-.hero-alt-note a:hover,
-.hero-alt-note a:active,
-.hero-alt-link:hover,
-.hero-alt-link:active {
-    color: var(--white) !important;
-}
-
-/* ==========================================================================
-   Responsive Text Helpers
-   ========================================================================== */
-.mobile-only {
-    display: none !important;
-}
-.desktop-only {
-    display: inline !important;
-}
-
-/* ==========================================================================
-   Mobile Header Adjustments (Only Touches the Header)
-   ========================================================================== */
-@media (max-width: 768px) {
-    .mobile-only {
-        display: inline !important;
-    }
-    .desktop-only {
-        display: none !important;
-    }
-
-    .nav-container {
-        padding: 8px 12px !important;
-        
-    }
-
-    .nav-logo {
-        height: 32px !important;
-    }
-
-    .brand-text {
-        font-size: 1.4rem !important;
-    }
-
-    .brand-subtext {
-        font-size: 0.65rem !important;
-        letter-spacing: 0.5px !important;
-        white-space: nowrap !important;
-    }
-
-    .btn-nav,
-    .btn-nav:visited {
-        padding: 6px 12px !important;
-        font-size: 0.8rem !important;
-        white-space: nowrap !important;
-    }
-    /* Pulls CTA button up closer to "Elevating..." tagline */
-    .hero-tagline {
-        margin-top: 2px !important;
-    }
-
-    .cta-group {
-        margin-top: 4px !important; /* Reduced from 18px */
-        gap: 10px !important;       /* Tightens button-to-note gap slightly */
-    }
+       
 
 }

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#0A192F">
-    <title>13U Tigers Softball | 2027 Recruitment</title>
+    <title>13U Tigers Softball | 2027 Recruitment (BMBA Preview)</title>
 
     <!-- Browser Tab Icon -->
     <link rel="icon" type="image/png" href="assets/b2-logo.png">
@@ -14,29 +14,27 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:ital,wght@0,400;0,700;0,900;1,700&display=swap">
     
-    <link rel="stylesheet" href="styles.css">
+    <!-- Using separate BMBA-aligned stylesheet -->
+    <link rel="stylesheet" href="styles2.css">
 
     <!-- Open Graph / WhatsApp / iMessage / Facebook -->
     <meta property="og:type" content="website" />
     <meta property="og:title" content="13U Tigers Select Softball | September Tryouts" />
     <meta property="og:description" content="Development, Competition, Culture. Register today for our upcoming September tryouts." />
     <meta property="og:image" content="https://bwgsoftball.ca/assets/tiger-logo-preview.jpg" />
-    <meta property="og:url" content="https://bwgsoftball.ca" />
+    <meta property="og:url" content="https://bwgsoftball.ca/preview.html" />
 
     <!-- Twitter / General Mobile Fallbacks -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="13U Tigers Select Softball | September Tryouts" />
     <meta name="twitter:description" content="Development, Competition, Culture. Register today for our upcoming September tryouts." />
-    <meta name="twitter:image" content="https://bwgsoftball.ca/assets/tiger-logo-preview.jpg" />
-   
+    <meta name="twitter:image" content="https://bwgsoftball.ca/assets/tiger-logo-preview.jpg" />   
+
     <!-- Tally.so popup during carrot fest -->
     <script>
-    // TOGGLE SWITCH: Set to true to go live, false to turn off
     const ENABLE_TALLY = false;
-
-    // Auto-enables on localhost OR when adding "?test=1" to URL
-    const IS_TESTING = window.location.hostname === 'localhost' ||
-                       window.location.hostname === '127.0.0.1' ||
+    const IS_TESTING = window.location.hostname === 'localhost' || 
+                       window.location.hostname === '127.0.0.1' || 
                        window.location.search.includes('test=1');
 
     if (ENABLE_TALLY || IS_TESTING) {
@@ -44,7 +42,7 @@
         "formId": "PdQ6N0",
         "popup": {
           "emoji": {
-            "text": "\uD83E\uDD55", //uDD55 is a carrot, uDD4E was a softball
+            "text": "\uD83E\uDD4E",
             "animation": "bounce"
           },
           "open": {
@@ -60,26 +58,29 @@
     }
     </script>
 </head>
-
 <body>
 
-    <!-- Announcement / Disclaimer Bar -->
-    <div class="top-announcement-bar">
-        <span>Looking for the main association page or house league registration? <a href="https://bradfordtigers.ca" target="_blank" rel="noopener noreferrer">Visit BradfordTigers.ca &rarr;</a></span>
-    </div> 
-
-    <!-- Header / Navigation -->
-    <header class="navbar">
-        <div class="nav-container">
-            <div class="brand">
-                <img src="assets/b2-logo.png" alt="Bradford Tigers B Logo" class="nav-logo">
+<!-- Header / Navigation -->
+<header class="navbar">
+    <div class="nav-container">
+        <a href="https://bradfordtigers.ca" target="_blank" rel="noopener noreferrer" class="brand" title="Visit BradfordTigers.ca">
+            <img src="assets/b2-logo.png" alt="Bradford Tigers B Logo" class="nav-logo">
+            <div class="brand-text-wrapper">
                 <span class="brand-text">TIGERS</span>
+                <span class="brand-subtext">
+                    <span class="desktop-only">BRADFORD MINOR BASEBALL ASSOCIATION</span>
+                    <span class="mobile-only">Bradford Minor Baseball Assoc.</span>
+                </span>
             </div>
-            <a href="https://forms.gle/GKhw946RZWxFUqny7" target="_blank" class="btn-nav">EXPRESS INTEREST</a>
-        </div>
-    </header>
+        </a>
+        <a href="https://forms.gle/GKhw946RZWxFUqny7" target="_blank" class="btn-nav">
+            <span class="desktop-only">EXPRESS INTEREST</span>
+            <span class="mobile-only">UPDATES</span>
+        </a>
+    </div>
+</header>
 
-    <!-- Hero Section (Above-the-fold focus) -->
+    <!-- Hero Section -->
     <section class="hero">
         <div class="hero-overlay"></div>
         <div class="hero-content">
@@ -87,12 +88,15 @@
                 <img src="assets/tiger-logo.webp" alt="Tigers Emblem" class="hero-logo">
             </div>
             <h1 class="hero-title">EARN YOUR <span class="text-orange">STRIPES</span></h1>
-            <p class="hero-subtitle">BRADFORD'S FIRST 13U SELECT SOFTBALL PROGRAM
+            <p class="hero-subtitle">BRADFORD'S FIRST 13U SELECT SOFTBALL PROGRAM</p>
             <span class="hero-tagline">Elevating competitive development for girls born in 2014 and 2015.</span>
             <div class="cta-group">
                 <a href="https://forms.gle/GKhw946RZWxFUqny7" target="_blank" class="btn-primary">
                     SIGN UP FOR TRYOUT INFO<span class="arrow">&rarr;</span>
                 </a>
+                <p class="hero-alt-note">
+                    Player not born in 2014/2015? <a href="https://forms.gle/GKhw946RZWxFUqny7" target="_blank" class="hero-alt-link">Get general House League updates &rarr;</a>
+                </p>
             </div>
         </div>
     </section>
@@ -108,26 +112,21 @@
     <section class="program-glance">
         <div class="container">
             <h2 class="section-title">PROGRAM AT A <span class="text-orange">GLANCE</span></h2>
-            
             <div class="pillars-grid grid-2x2">
                 <div class="pillar-card">
                     <h3>What is Select?</h3>
-                    <p>A competitive supplement for girls in U13 House League. Features indoor winter training, upgraded team uniforms, and regional weekend tournaments.</p>
+                    <p>A competitive supplement for girls in Bradford Minor Baseball Association's U13 Softball House League. Features indoor winter training, upgraded team uniforms, and regional weekend tournaments.</p>
                 </div>
-
                 <div class="pillar-card">
-<!--                    <div class="pillar-number">02</div> -->
                     <h3>Time Commitment</h3>
                     <p><strong>Winter:</strong> 1–2 indoor sessions/week focused on pitching, hitting, and fielding mechanics.</p>
                     <p style="margin-top: 10px;"><strong>Summer:</strong> Base House League schedule (2 weeknights/week) + Select weekend tournaments and targeted team practices.</p>
                 </div>
-
                 <div class="pillar-card">
                     <h3>Season Timeline</h3>
                     <p><strong>Winter Training:</strong> Dec – Apr (Indoor Practices)<br>
-                       <strong>Summer Season:</strong> May – Aug (Practies, Games &amp; Tournaments)</p>
+                       <strong>Summer Season:</strong> May – Aug (Practices, Games &amp; Tournaments)</p>
                 </div>
-
                 <div class="pillar-card">
                     <h3>Core Focus</h3>
                     <p>Advanced fundamental mechanics, tactical softball IQ, positional mastery, and building a positive, resilient team culture.</p>
@@ -141,26 +140,20 @@
         <div class="container">
             <h2 class="section-title">THE <span class="accent-text">STANDARD</span></h2>
             <div class="pillars-grid">
-      
-                <!-- Card 01 -->
                 <div class="pillar-card">
                     <div class="pillar-number">01</div>
                     <h3>DEVELOPMENT</h3>
                     <p>Relentless focus on fundamental mechanics, position-specific skill, and multi-position field experience—developing well-rounded athletes, not single-position specialists.</p>
                 </div>
-
-                <!-- Card 02 -->
                 <div class="pillar-card">
                     <div class="pillar-number">02</div>
                     <h3>COMPETITION</h3>
                     <p>The best of both worlds: local House League play paired with regional Select weekend tournaments to elevate game IQ and test skills against top competition.</p>
                 </div>
-
-                <!-- Card 03 -->
                 <div class="pillar-card">
                     <div class="pillar-number">03</div>
                     <h3>CULTURE</h3>
-                   <p>Accountability, grit, and a team-first attitude on and off the field. We play bold and respect the game.</p>
+                    <p>Accountability, grit, and a team-first attitude on and off the field. We play bold and respect the game.</p>
                 </div>
             </div>
         </div>
@@ -172,6 +165,9 @@
             <div class="callout-text">
                 <h2>READY TO STEP UP TO THE PLATE?</h2>
                 <p>Tryouts will take place during the <strong>first week of September</strong> at a Bradford diamond (exact field and dates TBD). Fill out our prospective player sheet to get tryout schedules, venue updates, and program details sent directly to your inbox.</p>
+            <p style="font-size: 0.85rem; opacity: 0.8; margin-top: 8px;">
+    <em>*Note: Official player registration and insurance for chosen roster players will be processed directly through the BMBA registration portal.</em>
+</p>
             </div>
             <a href="https://forms.gle/GKhw946RZWxFUqny7" target="_blank" rel="noopener noreferrer" class="btn-secondary">
                 SUBMIT PLAYER PROSPECT FORM
@@ -184,33 +180,26 @@
         <div class="container footer-content">
             <img src="assets/tiger-logo.webp" alt="Tigers Logo" class="footer-logo">
 
-            <!-- Connect / Social Links Section -->
             <div class="footer-social-section">
                 <h3 class="social-heading">CONNECT WITH US</h3>
                 <div class="social-links">
-                    <!-- Instagram -->
                     <a href="https://www.instagram.com/bwgsoftball" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="Instagram">
                         <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
                     </a>
-                    <!-- Facebook -->
                     <a href="https://www.facebook.com/bwgsoftball" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="Facebook">
                         <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
                     </a>
-                    <!-- Email -->
-                    <a href="https://forms.gle/GKhw946RZWxFUqny7" target-"_blank" class="social-btn" aria-label="Email Us">
+                    <a href="https://forms.gle/GKhw946RZWxFUqny7" target="_blank" class="social-btn" aria-label="Email Us">
                         <svg viewBox="0 0 24 24"><path d="M0 3v18h24v-18h-24zm21.518 2l-9.518 7.713-9.518-7.713h19.036zm-19.518 14v-11.817l10 8.104 10-8.104v11.817h-20z"/></svg>
                     </a>
                 </div>
             </div>
 
-            
             <p class="disclaimer-text">
-                <strong>Disclaimer:</strong> This website is an independent page in support of the 13U Select Softball team in Bradford and is not the official main association website. For general house league registration and official Bradford Tigers association information, please visit <a href="https://bradfordtigers.ca" target="_blank" rel="noopener noreferrer">bradfordtigers.ca</a>.
+                <strong>Disclaimer:</strong> This page serves as an official interest landing page in support of the 13U Select Softball team under the Bradford Minor Baseball Association (BMBA). For general house league registration and executive information, please visit <a href="https://bradfordtigers.ca" target="_blank" rel="noopener noreferrer">bradfordtigers.ca</a>.
             </p>
-
             <p>&copy; 2026 BWG Softball Volunteers. Bradford Tigers Softball - Built for the grind.</p>
         </div>
     </footer>
-
 </body>
 </html>
