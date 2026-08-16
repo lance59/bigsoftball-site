@@ -45,7 +45,6 @@ body {
    ========================================================================== */
 .top-announcement-bar {
     background: #000000; /* Pure black background for high contrast */
-    border-bottom: 3px solid var(--orange); /* Thick official orange border */
     padding: 10px 0; /* Slightly taller for better breathing room */
     font-size: 0.85rem;
     color: #FFFFFF;
@@ -127,15 +126,14 @@ body {
 }
 
 /* ==========================================================================
-   Navigation Bar
+   Navigation Bar (Unified Black Header - Complete Fix)
    ========================================================================== */
 .navbar {
-    background-color: rgba(10, 25, 47, 0.95);
+    background-color: #000000;
     border-bottom: 3px solid var(--orange);
     position: sticky;
     top: 0;
     z-index: 100;
-    backdrop-filter: blur(5px);
 }
 
 .nav-container {
@@ -144,32 +142,56 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 12px 20px;
+    padding: 10px 20px;
 }
 
 .brand {
     display: flex;
     align-items: center;
     gap: 12px;
+    text-decoration: none;
+    color: var(--white);
+    transition: opacity 0.2s ease;
 }
 
+.brand:hover {
+    opacity: 0.85;
+}
+
+/* Caps logo height to prevent giant blowout */
 .nav-logo {
-    height: 35px;
+    height: 40px;
     width: auto;
     object-fit: contain;
-    padding: 2px 6px;
+}
+
+.brand-text-wrapper {
+    display: flex;
+    flex-direction: column;
+    line-height: 1;
 }
 
 .brand-text {
     font-family: var(--font-heading);
     font-size: 1.8rem;
     letter-spacing: 2px;
+    color: var(--white);
 }
 
-.btn-nav {
-    background: var(--orange);
-    color: var(--white);
-    text-decoration: none;
+.brand-subtext {
+    font-size: 0.55rem;
+    letter-spacing: 0.5px;
+    color: var(--orange);
+    font-weight: 700;
+    margin-top: 2px;
+}
+
+/* Restores orange slanted CTA button */
+.btn-nav,
+.btn-nav:visited {
+    background: var(--orange) !important;
+    color: var(--white) !important;
+    text-decoration: none !important;
     font-weight: 700;
     padding: 8px 18px;
     transform: skewX(-12deg);
@@ -178,23 +200,24 @@ body {
     font-size: 0.9rem;
 }
 
-.btn-nav:hover {
-    background: var(--orange-hover);
+.btn-nav:hover,
+.btn-nav:active {
+    background: var(--orange-hover) !important;
+    color: var(--white) !important;
 }
-
 /* ==========================================================================
    Hero Section
    ========================================================================== */
 .hero {
     position: relative;
-    min-height: calc(100vh - 110px);
-    min-height: calc(100dvh - 110px); 
+    min-height: calc(100vh - 60px);
+    min-height: calc(100dvh - 60px);
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     text-align: center;
-    padding: clamp(15px, 3vh, 30px) 20px clamp(30px, 7vh, 70px) 20px;
+    padding: 15px 20px 25px 20px;
 }
 
 .hero::before {
@@ -225,7 +248,7 @@ body {
 
 .hero-logo {
     width: auto;
-    height: clamp(60px, 40vh, 550px);
+    height: clamp(60px, 30vh, 550px);
     max-width: 100%;
     object-fit: contain;
     margin: 1rem auto 1rem; 
@@ -259,7 +282,12 @@ body {
   opacity: 0.9;
 }
 
+/* Converts CTA container to flexbox to cleanly push note away from button */
 .cta-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px; /* Forces exact 16px gap below slanted button */
     margin-top: clamp(8px, 2vh, 18px);
     margin-bottom: 0;
 }
@@ -290,9 +318,31 @@ body {
     margin-left: 10px;
     transition: transform 0.2s ease;
 }
-
+	
 .btn-primary:hover .arrow {
     transform: translateX(5px);
+}
+
+.hero-alt-note {
+    margin: 0 !important;
+    padding: 0 12px;
+    line-height: 1.4;
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.85);
+    font-weight: 500;
+}
+
+/* Corrected syntax (removed space in var(--orange)) */
+.hero-alt-link {
+    color: var(--orange);
+    text-decoration: underline;
+    font-weight: 700;
+    transition: color 0.2s ease;
+}
+
+.hero-alt-link:hover,
+.hero-alt-link:active {
+    color: var(--white);
 }
 
 /* ==========================================================================
@@ -605,4 +655,84 @@ footer {
         padding-top: 2rem !important;
         padding-bottom: 2rem !important;
     }
+}
+
+/* ==========================================================================
+   Hero Alternate Link (Override Browser Defaults)
+   ========================================================================== */
+.hero-alt-note a,
+.hero-alt-note a:link,
+.hero-alt-note a:visited,
+.hero-alt-link,
+.hero-alt-link:link,
+.hero-alt-link:visited {
+    color: var(--orange) !important;
+    text-decoration: underline !important;
+    font-weight: 700 !important;
+    transition: color 0.2s ease !important;
+}
+
+.hero-alt-note a:hover,
+.hero-alt-note a:active,
+.hero-alt-link:hover,
+.hero-alt-link:active {
+    color: var(--white) !important;
+}
+
+/* ==========================================================================
+   Responsive Text Helpers
+   ========================================================================== */
+.mobile-only {
+    display: none !important;
+}
+.desktop-only {
+    display: inline !important;
+}
+
+/* ==========================================================================
+   Mobile Header Adjustments (Only Touches the Header)
+   ========================================================================== */
+@media (max-width: 768px) {
+    .mobile-only {
+        display: inline !important;
+    }
+    .desktop-only {
+        display: none !important;
+    }
+
+    .nav-container {
+        padding: 8px 12px !important;
+        
+    }
+
+    .nav-logo {
+        height: 32px !important;
+    }
+
+    .brand-text {
+        font-size: 1.4rem !important;
+    }
+
+    .brand-subtext {
+        font-size: 0.65rem !important;
+        letter-spacing: 0.5px !important;
+        white-space: nowrap !important;
+    }
+
+    .btn-nav,
+    .btn-nav:visited {
+        padding: 6px 12px !important;
+        font-size: 0.8rem !important;
+        white-space: nowrap !important;
+    }
+    /* Pulls CTA button up closer to "Elevating..." tagline */
+    .hero-tagline {
+        margin-top: 2px !important;
+    }
+
+    .cta-group {
+        margin-top: 4px !important; /* Reduced from 18px */
+        gap: 10px !important;       /* Tightens button-to-note gap slightly */
+    }
+
 }
